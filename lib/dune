@@ -1,7 +1,7 @@
 (library
  (name aoc)
  (modules drivers problem_runner)
- (libraries cmdliner piaf problems import))
+ (libraries cmdliner piaf problems import str))
 
 (library
  (name import)

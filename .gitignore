@@ -1,6 +1,7 @@
 _build/
 _opam/
 inputs/
+.vscode/
 .sl/
 .git/
 .DS_Store

@@ -72,7 +72,7 @@ module Cli = struct
         | Error error_msg -> `Error (false, error_msg))
 
   let main () =
-    let info = Cmd.info "tanenbaum" in
+    let info = Cmd.info "aoc2024" in
     let cmd =
       Cmd.v info
         Term.(

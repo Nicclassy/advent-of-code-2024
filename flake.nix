@@ -27,7 +27,7 @@
           ## - or force ocamlfind to be a certain version:
           # ocamlfind = "1.9.2";
         };
-        scope = on.buildDuneProject { } "tanenbaum"  ./. query;
+        scope = on.buildDuneProject { } "aoc2024"  ./. query;
         overlay = final: prev:
           {
             # You can add overrides here

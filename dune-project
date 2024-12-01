@@ -1,24 +1,24 @@
-(lang dune 3.7)
+(lang dune 3.17)
 
-(name tanenbaum)
+(name aoc2024)
 (version 0.1.0)
 
 (generate_opam_files true)
 
 (source
- (github sixstring982/tanenbaum))
+ (github Nicclassy/advent-of-code-2024))
 
-(authors "Sixstring982")
+(authors "Sixstring982" "Nicclassy")
 
-(maintainers "Sixstring982")
+(maintainers "Nicclassy")
 
 (license BSD-3-Clause)
 
 (documentation https://sixstring982.github.io/tanenbaum)
 
 (package
- (name tanenbaum)
- (synopsis "OCaml Advent of Code starter project")
+ (name aoc2024)
+ (synopsis "Advent of code 2024 solutions")
  (depends
   ocaml
   reason

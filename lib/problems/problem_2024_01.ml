@@ -22,7 +22,6 @@ module Part_2 = struct
     | current :: rest -> 
       if current <> previous then
         begin
-          Printf.printf "Added %d with count %d\n" previous acc;
           Hashtbl.add counts_map previous acc;
           propagate_occurence_counts rest counts_map current 1
         end
@@ -34,7 +33,6 @@ module Part_2 = struct
       | [] -> acc
       | first :: rest -> 
         let count = if Hashtbl.mem counts_map first then first * Hashtbl.find counts_map first else 0 in
-        let _ = Printf.printf "count for %d is %d\n" first count in
         sum_occurences rest counts_map (acc + count)
 
   let run (input : string) : (string, string) result = 

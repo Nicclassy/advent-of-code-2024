@@ -9,4 +9,4 @@
 
 (library
  (name problems)
- (libraries problem import str))
+ (libraries problem import str base))

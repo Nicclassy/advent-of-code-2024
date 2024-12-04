@@ -1,4 +1,4 @@
-let year = 2023
+let year = 2024
 let day = 1
 
 module Part_1 = struct

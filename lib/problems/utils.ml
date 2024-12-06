@@ -22,3 +22,16 @@ let parse_row conversion row =
 let parse_rows input conversion = 
   let rows = String.split_on_char '\n' input in
   List.map (parse_row conversion) rows
+
+  let print_list fmt lst =
+  match lst with
+  | [] -> print_string "[]"
+  | [hd] -> 
+    print_string "[";
+    Printf.printf fmt hd;
+    print_string "]\n"
+  | hd :: tl ->
+    print_string "[";
+    Printf.printf fmt hd;
+    List.iter (fun x -> print_string ", "; Printf.printf fmt x) tl;
+    print_string "]\n"

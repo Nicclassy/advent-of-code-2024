@@ -1,5 +1,3 @@
-open Utils
-
 let year = 2024
 let day = 5
 

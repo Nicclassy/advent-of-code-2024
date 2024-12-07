@@ -35,3 +35,15 @@ let parse_rows input conversion =
     Printf.printf fmt hd;
     List.iter (fun x -> print_string ", "; Printf.printf fmt x) tl;
     print_string "]\n"
+
+let fst (x, _) = x
+
+let string_of_char c = String.make 1 c
+
+let index_of predicate arr =
+  let rec aux i =
+    if i >= Array.length arr then None
+    else if predicate arr.(i) then Some i
+    else aux (i + 1)
+  in
+  aux 0

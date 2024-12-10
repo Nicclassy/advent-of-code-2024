@@ -1,3 +1,28 @@
+let fst (x, _) = x
+
+let string_of_char c = String.make 1 c
+
+let int_of_char c = Char.code c - Char.code '0'
+
+let print_list fmt = function
+  | [] -> print_string "[]"
+  | [hd] -> 
+    print_string "[";
+    Printf.printf fmt hd;
+    print_string "]\n"
+  | hd :: tl ->
+    print_string "[";
+    Printf.printf fmt hd;
+    List.iter (fun x -> print_string ", "; Printf.printf fmt x) tl;
+    print_string "]\n"
+
+let print_hashmap print_key print_value tbl =
+  Hashtbl.iter (fun key value ->
+    Printf.printf "%s -> %s\n" (print_key key) (print_value value)
+  ) tbl
+
+let print_option fmt = function | Some v -> Printf.printf fmt v; print_endline "" | None -> print_endline "None"
+
 let unzip_pairs lst = 
   List.fold_left (fun (first, second) (x, y) -> (x :: first, y :: second)) ([], []) lst
 
@@ -22,23 +47,6 @@ let parse_row conversion row =
 let parse_rows input conversion = 
   let rows = String.split_on_char '\n' input in
   List.map (parse_row conversion) rows
-
-  let print_list fmt lst =
-  match lst with
-  | [] -> print_string "[]"
-  | [hd] -> 
-    print_string "[";
-    Printf.printf fmt hd;
-    print_string "]\n"
-  | hd :: tl ->
-    print_string "[";
-    Printf.printf fmt hd;
-    List.iter (fun x -> print_string ", "; Printf.printf fmt x) tl;
-    print_string "]\n"
-
-let fst (x, _) = x
-
-let string_of_char c = String.make 1 c
 
 let index_of predicate arr =
   let rec aux i =

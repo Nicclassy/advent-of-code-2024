@@ -1,3 +1,5 @@
+let ( let* ) = Option.bind
+
 let fst (x, _) = x
 
 let string_of_char c = String.make 1 c
@@ -14,6 +16,18 @@ let print_list fmt = function
     print_string "[";
     Printf.printf fmt hd;
     List.iter (fun x -> print_string ", "; Printf.printf fmt x) tl;
+    print_string "]\n"
+
+let print_list_pred f = function
+  | [] -> print_string "[]"
+  | [hd] -> 
+    print_string "[";
+    print_string (f hd);
+    print_string "]\n"
+  | hd :: tl ->
+    print_string "[";
+    print_string (f hd);
+    List.iter (fun x -> print_string ", "; print_string (f x)) tl;
     print_string "]\n"
 
 let print_hashmap print_key print_value tbl =

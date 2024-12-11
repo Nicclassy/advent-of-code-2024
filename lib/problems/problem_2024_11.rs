@@ -1,3 +1,4 @@
+use std::env;
 use std::collections::HashMap;
 
 enum BlinkTransform<T = u64> {
@@ -32,15 +33,13 @@ fn blink_transform(number: u64) -> BlinkTransform {
 }
 
 fn main() {
-    let args = env::args().collect();
-    let mut counts = parse_input(args[1]);
+    let args = env::args().collect::<Vec<String>>();
+    let mut counts = parse_input(&args[1]);
 
     for _ in 0..75 {
-        let mut numbers_to_remove = HashMap::new();
         let mut updated_counts = HashMap::new();
 
         for (number, count) in counts.iter_mut() {
-            numbers_to_remove.insert(*number, *count);
             match blink_transform(*number) {
                 BlinkTransform::One(a) => {
                     *updated_counts.entry(a).or_insert(0) += *count;
